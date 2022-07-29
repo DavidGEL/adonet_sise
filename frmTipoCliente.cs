@@ -15,6 +15,7 @@ namespace WindowsFormsApp4
         private Button btnRefresh;
         private Button btnAdd;
         private Button btnEdit;
+        private Button btnDelete;
         private DataGridView dgvDatos;
 
         public frmTipoCliente()
@@ -28,6 +29,7 @@ namespace WindowsFormsApp4
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,12 +41,12 @@ namespace WindowsFormsApp4
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(12, 124);
             this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.Size = new System.Drawing.Size(298, 150);
+            this.dgvDatos.Size = new System.Drawing.Size(379, 150);
             this.dgvDatos.TabIndex = 0;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(223, 77);
+            this.btnRefresh.Location = new System.Drawing.Point(289, 77);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(87, 31);
             this.btnRefresh.TabIndex = 1;
@@ -54,9 +56,9 @@ namespace WindowsFormsApp4
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 81);
+            this.btnAdd.Location = new System.Drawing.Point(104, 77);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(87, 31);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Nuevo";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -64,17 +66,28 @@ namespace WindowsFormsApp4
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(124, 81);
+            this.btnEdit.Location = new System.Drawing.Point(12, 77);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(87, 31);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(197, 77);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(86, 31);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmTipoCliente
             // 
-            this.ClientSize = new System.Drawing.Size(322, 286);
+            this.ClientSize = new System.Drawing.Size(403, 286);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRefresh);
@@ -137,6 +150,20 @@ namespace WindowsFormsApp4
                 return 0;
             }
             
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var respuesta = MessageBox.Show("Realmente desea eliminar el registro?", "Sistema",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuesta == DialogResult.Yes)
+            {
+                //Eliminar
+                MessageBox.Show("Registro eliminado","Sistemas",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }else
+            {
+
+            }
         }
     }
 }
